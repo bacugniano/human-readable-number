@@ -24,9 +24,19 @@ module.exports = function toReadable (number) {
     if (numStr[1] == 0 && numStr[2] == 0) {
       return `${arrayOne[numStr[0]]} hundred`
     }
+
+    else if (numStr[2] == 0) {
+      return `${arrayOne[numStr[0]]} hundred ${arrayTen[numStr[1]]}`
+    }
+
     else if (numStr[1] == 0 && numStr[2] > 0) {
       return `${arrayOne[numStr[0]]} hundred ${arrayOne[numStr[2]]}`
     }
+
+    else if ((numStr[2] >= 0 && numStr[2] <= 9) && numStr[1] == 1) {
+      return `${arrayOne[numStr[0]]} hundred ${arrayTeen[numStr[2]]}`
+    }
+
     else return `${arrayOne[numStr[0]]} hundred ${arrayTen[numStr[1]]} ${arrayOne[numStr[2]]}`
   }
   
